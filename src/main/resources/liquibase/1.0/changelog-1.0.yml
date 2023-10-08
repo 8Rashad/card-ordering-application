@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create cards table
+      author: Rashad Suleymanov
+      changes:
+        - createTable:
+            tableName: cards
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: pan
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cvv
+                  type: varchar(256)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cardHolder
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expirationDate
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store info about cards
+
+
+
+
+

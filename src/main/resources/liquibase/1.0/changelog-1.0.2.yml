@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create orders table
+      author: Rashad Suleymanov
+      changes:
+        - createTable:
+            tableName: orders
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: userId
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: orderDate
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store info about orders
+
+
+
+
+

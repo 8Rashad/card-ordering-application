@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-foreign-key
+      author: Rashad Suleymanov
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_id  # The column in the current table
+            baseTableName: cards      # The name of the current table
+            constraintName: fk_cards_to_users
+            referencedColumnNames: id  # The column in the referenced table
+            referencedTableName: users     # The name of the referenced table
+            deferrable: false
+            initiallyDeferred: false
+
+
+
+
+

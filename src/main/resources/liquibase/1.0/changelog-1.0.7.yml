@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create tickets table
+      author: Rashad Suleymanov
+      changes:
+        - createTable:
+            tableName: tickets
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: orderId
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(256)
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store info about tickets
+
+
+
+
+

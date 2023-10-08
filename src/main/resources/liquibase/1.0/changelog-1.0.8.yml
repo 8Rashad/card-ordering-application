@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: Add new column
+      author: Rashad Suleymanov
+      changes:
+        - addColumn:
+            tableName: tickets
+            columns:
+              - column:
+                  name: cardId
+                  type: bigint
+
+
+
+
+

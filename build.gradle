@@ -1,0 +1,72 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.2'
+	id 'io.spring.dependency-management' version '1.1.2'
+	id 'org.hibernate.orm' version '6.2.6.Final'
+	id 'org.graalvm.buildtools.native' version '0.9.23'
+	id 'groovy'
+}
+
+group = 'com.example.liguibase'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.projectlombok:lombok:1.18.26'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//postgresql
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly('org.postgresql:postgresql:42.6.0')
+
+	//data
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	//liquibase
+	implementation 'org.liquibase:liquibase-core'
+
+	//rabbitmq
+	implementation 'com.rabbitmq:amqp-client:5.12.0'
+	implementation 'org.springframework.boot:spring-boot-starter-amqp:2.5.5'
+
+	// redis
+	implementation 'org.redisson:redisson:3.20.0'
+
+	//lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	implementation group: 'net.javacrumbs.shedlock', name:'shedlock-spring', version:"5.3.0"
+	implementation 'net.javacrumbs.shedlock:shedlock-provider-jdbc-template:5.3.0'
+
+	// JUnit for unit testing
+	testImplementation 'junit:junit:4.13.2'
+
+	//swagger
+	implementation ("org.springdoc:springdoc-openapi-ui:1.6.15")
+
+	//testing
+	implementation group: 'org.apache.groovy', name:'groovy', version: "4.0.0"
+	testImplementation group: 'org.spockframework', name:'spock-spring', version:"2.2-M1-groovy-4.0"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation("io.github.benas:random-beans:3.9.0")
+
+	implementation 'com.nimbusds:nimbus-jose-jwt:9.15.2'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
